@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.lang.Double?>
+<?import omcub.javafx.workstateindicator.WorkStateIndicator?>
+
+<BorderPane fx:id="test_BorderPane"
+  xmlns="http://javafx.com/javafx/8"
+  xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="omcub.javafx.workstateindicator.TestWorkStateIndicator$Controller"
+  prefWidth="400"
+  prefHeight="300"
+  >
+
+  <top>
+    <HBox fx:id="test_HBox">
+      <WorkStateIndicator fx:id="test_WorkStateIndicator"
+        >
+        <!--
+        <cancelled>
+          <Circle radius="24.0" fill="chocolate" stroke="black"/>
+        </cancelled>
+        -->
+        <!--
+        <failed>
+          <Circle radius="24.0" fill="red" stroke="black"/>
+        </failed>
+        -->
+        <ready>
+          <Rectangle
+            width="42"
+            height="42"
+            fill="cornflowerblue"
+            stroke="darkgray"
+            />
+        </ready>
+        <running>
+          <ImageView fitWidth="48"
+            fitHeight="48">
+            <Image url="@/greenarrow.png"/>
+          </ImageView>
+        </running>
+        <scheduled>
+          <Polygon
+            fill="darkcyan"
+            >
+            <points> <!-- diamond -->
+              <Double fx:value="24.0"/> <Double fx:value="4.0"/>
+              <Double fx:value="44.0"/> <Double fx:value="24.0"/>
+              <Double fx:value="24.0"/> <Double fx:value="44.0"/>
+              <Double fx:value="4.0"/> <Double fx:value="24.0"/>
+            </points>
+          </Polygon>
+        </scheduled>
+        <!--
+        <succeeded>
+          <Circle radius="24.0" fill="limegreen" stroke="black"/>
+        </succeeded>
+        -->
+      </WorkStateIndicator>
+      <ChoiceBox fx:id="test_stateChoiceBox"/>
+    </HBox>
+  </top>
+
+  <center>
+    <TextArea fx:id="test_TextArea"
+      prefWidth="Infinity"
+      prefHeight="Infinity"
+      VBox.vgrow="ALWAYS"
+      HBox.hgrow="ALWAYS"
+      />
+  </center>
+
+  <bottom>
+    <HBox>
+      <Button fx:id="test_Button"
+        text="Button"
+        mnemonicParsing="false"/>
+    </HBox>
+  </bottom>
+
+</BorderPane>
